@@ -56,3 +56,25 @@ cost-of-living-migration-shiny/
 - App Code: [View app.R](App/app.R)
 - Project Vignette: [View HTML vignette](vignette/vignette.html)
 - Vignette Source: [View Quarto source](vignette/vignette.qmd)
+
+## Screenshots
+
+### Migration Map
+
+![Migration map screenshot](images/migration_map_screenshot.png)
+
+### Model Fit
+
+![Model fit screenshot](images/model_fit_screenshot.png)
+
+### Regression Table
+
+![Regression table screenshot](images/regression_table_screenshot.png)
+
+### Coefficient Plot
+
+![Coefficient plot screenshot](images/coefficient_plot_screenshot.png)
+
+### Scatterplot
+
+![Scatterplot screenshot](images/scatterplot_screenshot.png)
