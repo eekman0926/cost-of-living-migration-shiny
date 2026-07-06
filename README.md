@@ -53,8 +53,9 @@ cost-of-living-migration-shiny/
 ## Links
 
 - Portfolio: [Eric Ekman Data Science Portfolio](https://github.com/eekman0926/data-science-portfolio)
+- Project Website: [View GitHub Pages site](https://eekman0926.github.io/cost-of-living-migration-shiny/)
+- Project Vignette: [View rendered HTML vignette](https://eekman0926.github.io/cost-of-living-migration-shiny/vignette/vignette.html)
 - App Code: [View app.R](App/app.R)
-- Project Vignette: [View HTML vignette](vignette/vignette.html)
 - Vignette Source: [View Quarto source](vignette/vignette.qmd)
 
 ## Screenshots
