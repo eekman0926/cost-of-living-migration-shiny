@@ -31,6 +31,19 @@ How are economic and cost-of-living indicators associated with state-level migra
 - Regression/model output summaries
 - Filterable data tables
 - Project vignette explaining the analysis and app workflow
+  
+## Key Takeaways
+
+- Migration patterns appear to be associated with multiple cost-of-living and economic factors rather than any single indicator.
+- Housing costs, income, employment conditions, and tax differences provide useful context for exploring why some states gain or lose residents.
+- Interactive tools such as maps, scatterplots, model outputs, and data tables make it easier to explore state-level patterns and compare possible explanations.
+- The project demonstrates how multi-source public datasets can be cleaned, merged, and presented in a user-friendly analytic application.
+
+## Notes
+
+This project is exploratory and should not be interpreted as a causal analysis. The app is designed to help users examine patterns and relationships between migration and cost-of-living indicators, not to determine why individuals or households moved.
+
+The project was developed collaboratively as part of a graduate data science course. This portfolio version highlights the final app, project vignette, screenshots, and public-facing documentation.
 
 ## Repository Structure
 
