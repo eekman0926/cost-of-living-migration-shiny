@@ -48,3 +48,8 @@ cost-of-living-migration-shiny/
 │   ├── vignette.qmd
 │   └── vignette.html
 └── README.md
+```
+
+## Links
+
+- Portfolio: [Eric Ekman Data Science Portfolio](https://github.com/eekman0926/data-science-portfolio)
