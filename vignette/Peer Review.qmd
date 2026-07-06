@@ -1,0 +1,51 @@
+---
+title: "Peer Review: DC AIR App Project Plan"
+format: html
+---
+
+## 1 Introduction
+
+**Date:** March 27, 2026  
+**Peer Reviewing Group:** Eric Ekman, Ambrose Bonney, Ian Chandramouli   
+**Peer Reviewed Group:** DC AIR Project Team (Antonia Donohue de Rezende, Kiki Nartey, Lydia G. Tillapaugh)
+
+This document evaluates the DC AIR app project plan from the perspective of a potential user. The focus is on the actor workflow and app layout, specifically how well they support users in answering key questions about air quality across Washington, DC wards.
+
+---
+
+## 2 Summary
+
+### Actor Workflow
+
+The proposed workflow is generally clear and intuitive. Users begin with an introductory screen, proceed to an interactive map of DC, select a year, and then click on a ward to explore detailed air quality trends. This sequence aligns well with typical user goals such as identifying air quality in a specific ward and understanding trends over time.
+
+A key strength is the use of a map-centered interaction, which matches how users naturally think about location-based questions. The workflow also provides multiple layers of information (scores, trends, factors), allowing users to explore the data at increasing levels of detail.
+
+However, the workflow appears more optimized for exploring a single ward at a time rather than directly answering comparison-based questions. While the plan states that users can compare wards, the steps for doing so are not clearly defined. As a result, answering questions such as “Which ward has the best air quality?” may require multiple manual steps and could feel less efficient.
+
+---
+
+### App Layout
+
+The overall layout supports the intended workflow and provides useful outputs. The inclusion of a user manual improves accessibility, and the main page centered around an interactive map is an effective design choice for geographic data. The addition of a year selector and drill-down dashboards for trends and predictions further enhances usability.
+
+The app also provides meaningful results, including air quality scores, historical trends, forecasts, and factor-specific visualizations. These outputs align well with the goal of making complex environmental data more understandable and actionable for users.
+
+A primary gap in the layout is the lack of explicit comparison tools. The design emphasizes drilling down into individual wards, but does not clearly support side-by-side comparisons across multiple wards. 
+
+---
+
+## 3 Recommendations
+
+The following improvements would strengthen the app’s ability to help users answer their questions:
+
+- Add **side-by-side ward comparison tools** to allow users to evaluate multiple wards simultaneously. Perhaps the drill down dashboards could allow users to select 2 wards and show both dashboards on the same screen. 
+- Include a **ranking or summary view** (e.g., best to worst air quality) to quickly answer high-level questions. This could be accomplished through an interactive data table. 
+- Ensure transparency by clearly explaining how the **air quality score is calculated** within the app interface. Since the app could influence perceptions of DC neighborhoods, explaining any data limitations or assumptions could improve transparency and user trust while ensuring ethical communication of findings. 
+- Including additional contextual variables (e.g., median income or social vulnerability index) could provide more context for interpreting air quality patterns. This would also allow for statistical modeling (e.g., multiple linear regression) to evaluate how well these variables explain variation in air pollution.  
+
+---
+
+## Overall Assessment
+
+The DC AIR project demonstrates a strong and user-centered design, with a clear workflow and meaningful outputs. The main opportunity for improvement is enhancing comparison functionality and making it easier for users to directly answer key questions about differences across wards.

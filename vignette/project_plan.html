@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Project Plan: Economic Drivers of Migration Patterns in the United States</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="project_plan_files/libs/clipboard/clipboard.min.js"></script>
+<script src="project_plan_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="project_plan_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="project_plan_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="project_plan_files/libs/quarto-html/popper.min.js"></script>
+<script src="project_plan_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="project_plan_files/libs/quarto-html/anchor.min.js"></script>
+<link href="project_plan_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="project_plan_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="project_plan_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="project_plan_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="project_plan_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Plan: Economic Drivers of Migration Patterns in the United States</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="plan.1.-admin" class="level1">
+<h1>Plan.1. Admin</h1>
+<p><strong>App Title:</strong><br>
+Economic Drivers of Migration Patterns in the United States</p>
+<p><strong>Group Members:</strong></p>
+<ul>
+<li>Eric Ekman (DATA 613)</li>
+<li>Ambrose Bonney (DATA 613)</li>
+<li>Ian Chandramouli (DATA 613)</li>
+</ul>
+<hr>
+</section>
+<section id="plan.2.-topic-and-data" class="level1">
+<h1>Plan.2. Topic and Data</h1>
+<section id="context-of-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="context-of-the-problem">2.1 Context of the Problem</h2>
+<p>Population migration within the United States has significant implications for regional economies, public policy, and infrastructure planning.</p>
+<p>Changes in where people live affect labor markets, housing demand, tax revenue, and the allocation of public services such as transportation, education, and healthcare.</p>
+<p>For example, population inflows may increase demand for housing and strain local infrastructure. In contrast, population outflows can reduce a region’s tax base and economic activity.</p>
+<p>Economic factors are widely considered key drivers of migration decisions. Differences in cost of living - particularly housing costs, wages, and tax burdens- may influence where individuals choose to relocate by affecting their overall financial well-being and quality of life.</p>
+<p>Rising housing costs or stagnant wages in one region may encourage out-migration, while more affordable or economically favorable regions may attract new residents.</p>
+<p>This project explores how these economic factors are associated with migration patterns across U.S. states and counties.</p>
+<p>By integrating migration data with measures of housing costs, wages, and taxes, the app allows users to examine how variation in cost-of-living factors corresponds to differences in population movement.</p>
+<hr>
+</section>
+<section id="literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="literature-review">2.2 Literature Review</h2>
+<p>Prior research has identified economic factors such as housing costs, wages, and tax differences as potentially important drivers of migration patterns within the United States.</p>
+<p><a href="https://www.federalreserve.gov/pubs/feds/2011/201130/201130pap.pdf">Molloy, Smith, and Wozniak (2011)</a> review trends in internal migration in the United States and note that, while economic theory emphasizes labor market opportunities as a primary driver of migration, empirical evidence is less conclusive.</p>
+<p>The authors find that recent declines in migration are not fully explained by economic factors, suggesting that migration decisions are influenced by a broader set of factors beyond just economic incentives.</p>
+<p><strong>Key takeaway:</strong> Economic factors are important in theory, but may not fully explain observed migration patterns in practice.</p>
+<p>Molloy, R., Smith, C. L., &amp; Wozniak, A. (2011). Internal migration in the United States. <em>Journal of Economic perspectives</em>, 25(3), 173-196.</p>
+<p><a href="https://www.nber.org/system/files/working_papers/w23609/w23609.pdf">Ganong and Shoag (2017)</a> examine the decline in regional income convergence in the United States and argue that changes in housing markets play a key role in shaping migration patterns.</p>
+<p>The authors show that, while higher-income regions historically attracted workers from lower-income areas, rising housing costs, driven in part by increasingly restrictive land use regulations, have reduced migration into these regions.</p>
+<p>As housing prices rise, the economic benefits of moving to high-income areas are offset, particularly for lower-income individuals, limiting their ability to relocate.</p>
+<p><strong>Key takeaway:</strong> High housing costs can constrain migration and reduce movement toward high-income regions, even when economic opportunities are greater.</p>
+<p>Ganong, P., &amp; Shoag, D. (2017). Why has regional income convergence in the US declined?. <em>Journal of Urban Economics</em>, 102, 76–90.</p>
+<p><a href="https://cristobalyoung.com/wp-content/uploads/2018/11/NTJ-millionaire-migration-state-taxation.pdf">Young and Varner (2011)</a> examine the relationship between state income taxes and migration, focusing on high-income individuals.</p>
+<p>Using detailed tax micro-data and a difference-in-differences approach, the authors analyze how a substantial increase in top tax rates in New Jersey affected the migration behavior of millionaires.</p>
+<p>The authors find minimal overall responsiveness of high-income individuals to the tax increase, indicating that even large changes in tax rates have little effect on migration for this group.</p>
+<p>While most individuals show little response, the authors identify heterogeneity in migration behavior, with stronger effects among retirees, individuals living on investment income, and those whose earnings are tied entirely to a single state.</p>
+<p><strong>Key takeaway:</strong> State taxes have little overall effect on migration among high-income individuals, though responses vary across subgroups depending on individual circumstances.</p>
+<p>Young, C., &amp; Varner, C. (2011). Millionaire migration and state taxation. <em>National Tax Journal</em>, 64(2), 255–284.</p>
+<p>Together, these studies suggest that the relationship between economic factors and migration patterns is more complex than simple economic theories might predict.</p>
+<p>Economic models often propose that individuals relocate in response to financial incentives such as higher wages, lower taxes, or lower costs of living. However, empirical evidence indicates that these factors do not always translate into large migration responses.</p>
+<p>Molloy, Smith, and Wozniak (2011) find that economic variables alone do not fully explain observed migration trends in the United States. Ganong and Shoag (2017) show that rising housing costs in high-income regions can constrain migration, limiting the ability of individuals to move toward higher-wage areas. Young and Varner (2011) find that tax differences have little overall effect on migration among high-income individuals, although certain subgroups(such as retirees and those with investment income) appear to be more responsive.</p>
+<p>Taken together, these findings highlight a gap between theoretical expectations and observed migration behavior. This project seeks to explore that gap by allowing users to examine how economic variables such as housing costs, wages, and taxes are associated with migration patterns across U.S. regions. —</p>
+</section>
+<section id="proposed-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="proposed-data-sources">2.3 Proposed Data Sources</h2>
+<p>To examine how economic factors are associated with migration patterns, this project will integrate multiple publicly available datasets.</p>
+<p>These datasets correspond to the outcome variable (migration) and key predictors (housing costs, wages, and taxes).</p>
+<section id="overview-of-data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="overview-of-data-sources">2.3.1 Overview of Data Sources</h3>
+<div class="line-block">Category | Data Source | Description |<br>
+Outcome | U.S. Census Migration Data | State-to-state migration flows based on survey data |<br>
+Predictor | Zillow Housing Data | Home values (ZHVI) and rental price estimates (ZORI) |<br>
+Predictor | BLS Wage Data | Wage and employment statistics by state and county |<br>
+Predictor | State Tax Data | State income tax rates and tax structure measures |</div>
+<hr>
+</section>
+<section id="data-source-details" class="level3">
+<h3 class="anchored" data-anchor-id="data-source-details">2.3.2 Data Source Details</h3>
+<p><strong>U.S. Census Migration Data (Outcome Variable)</strong><br>
+Link: https://www.census.gov/data/tables/time-series/demo/geographic-mobility/state-to-state-migration.html</p>
+<p>Migration data will be obtained from the U.S. Census Bureau, which provides state-to-state migration flows based on nationally representative survey data.</p>
+<p>These data measure geographic mobility using respondents’ current residence compared to their residence one year prior, allowing for the estimation of migration flows between states.</p>
+<p>The dataset includes recent observations (2023–2024), meeting the requirement for current, real-world data.</p>
+<p>The data cover all U.S. states and include large sample sizes, enabling analysis of migration patterns across regions.</p>
+<p>These measures will be used as the primary outcome variable in examining how economic factors such as housing costs, wages, and taxes are associated with population movement.</p>
+<hr>
+<p><strong>Zillow Housing Data (Housing Costs)</strong><br>
+Link: https://www.zillow.com/research/data/</p>
+<p>Housing costs will be measured using multiple indicators to capture different dimensions of affordability.</p>
+<p>The Zillow Home Value Index (ZHVI) represents the typical home value in a region and serves as a proxy for the cost of homeownership.</p>
+<p>The Zillow Observed Rent Index (ZORI) measures typical rental prices and captures the cost of renting.</p>
+<p>Using both measures allows the analysis to distinguish between housing cost pressures faced by homeowners and renters, providing a more comprehensive representation of housing affordability.</p>
+<hr>
+<p><strong>BLS Wage Data (Wages and Employment)</strong><br>
+Link: https://www.bls.gov/data/</p>
+<p>Wage and employment data will be obtained from the Bureau of Labor Statistics (BLS), which provides regularly updated economic data at national, state, and local levels.</p>
+<p>This project will primarily use data from the Quarterly Census of Employment and Wages (QCEW), which includes average wages and employment levels by county and state.</p>
+<p>These data are updated quarterly and include recent observations (2023–present), meeting the requirement for current, real-world data.</p>
+<p>The dataset contains thousands of observations across geographic units and industries, making it well-suited for analyzing regional economic variation.</p>
+<hr>
+<p><strong>State Tax Data (Tax Burden)</strong><br>
+Link: https://taxfoundation.org/data/all/state/state-income-tax-rates/</p>
+<p>State tax data will be obtained from the Tax Foundation, which provides comprehensive and regularly updated information on state income tax rates and structures.</p>
+<p>The dataset includes top marginal income tax rates, tax brackets, standard deductions, and personal exemptions for all U.S. states. These measures allow for comparison of tax systems across states, including differences between states with no income tax, flat tax structures, and graduated-rate systems.</p>
+<p>The data are updated annually and include recent observations (2023–2026), meeting the requirement for current, real-world data. Individual income taxes are a major source of state revenue and vary substantially across states, making them a useful proxy for differences in tax burden.</p>
+<p>These variables will be used to construct measures of relative tax burden across states for use in exploratory analysis and regression models.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="plan.3.-use-case" class="level1">
+<h1>Plan.3. Use Case</h1>
+<section id="actor-description" class="level2">
+<h2 class="anchored" data-anchor-id="actor-description">3.1 Actor Description</h2>
+<p>The primary user is a policy analyst or economic researcher interested in understanding migration patterns across U.S. states.</p>
+<p>These users seek to explore how populations shift across regions and how economic conditions such as housing costs, wages, and taxes may be associated with those changes.</p>
+<p>They are likely familiar with basic data analysis and interpretation but benefit from tools that allow them to explore data interactively and evaluate relationships between variables without requiring extensive data preparation or programming.</p>
+<hr>
+</section>
+<section id="actor-questions-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="actor-questions-of-interest">3.2 Actor Questions of Interest</h2>
+<ul>
+<li>Which states are experiencing net population gains or losses?</li>
+<li>How are housing costs associated with migration patterns across states?</li>
+<li>Are higher wages associated with increased inbound migration?</li>
+<li>How are differences in state tax structures associated with migration patterns?</li>
+<li>To what extent do housing costs, wages, and taxes jointly explain variation in migration patterns across states?</li>
+</ul>
+<hr>
+</section>
+<section id="anticipated-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="anticipated-workflow">3.3 Anticipated Workflow</h2>
+<ol type="1">
+<li>The user selects one or more U.S. states (up to three) to explore and compare.<br>
+</li>
+<li>The user selects a year of interest.<br>
+</li>
+<li>The app displays inbound, outbound, and net migration flows for the selected states and year using maps and summary tables.<br>
+</li>
+<li>The user explores economic indicators across selected states, including housing costs, wages, and state tax measures, through interactive plots.<br>
+</li>
+<li>The app displays scatterplots showing the relationship between selected economic variables and migration measures.<br>
+</li>
+<li>The user selects one or more economic variables for modeling.<br>
+</li>
+<li>The app estimates a regression model and displays results, including coefficients and summary metrics.<br>
+</li>
+<li>The user compares selected states to evaluate how economic factors are associated with differences in migration patterns.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="plan.4.-ethical-review" class="level1">
+<h1>Plan.4. Ethical Review</h1>
+<p>This project will use publicly available, aggregated data that does not include personally identifiable information (PII).</p>
+<p>Ethical considerations are guided by the American Statistical Association (ASA) Ethical Guidelines.</p>
+<p><strong>Data Privacy</strong><br>
+All datasets used in this project are aggregated at the state level and sourced from publicly available government or research organizations.</p>
+<p>No individual-level data will be used, ensuring that privacy risks are minimal and that no PII is exposed.</p>
+<p><strong>Bias and Limitations</strong><br>
+The data sources used may contain measurement error, sampling bias, or differences in methodology across sources.</p>
+<p>Additionally, migration patterns are influenced by many factors beyond those included in this project, such as social, geographic, and cultural considerations.</p>
+<p>These limitations will be acknowledged to avoid over interpretation of results.</p>
+<p><strong>Interpretation and Causality</strong><br>
+The analysis is based on observational data and will focus on identifying associations rather than causal relationships.</p>
+<p>Care will be taken to avoid implying that economic variables directly cause migration outcomes.</p>
+<p><strong>Responsible Communication</strong><br>
+Results will be presented in a clear and transparent manner, including appropriate labeling of variables, explanation of methods, and discussion of limitations.</p>
+<p>Visualizations will be designed to avoid misleading representations of data.</p>
+<p>These considerations align with the American Statistical Association (ASA) Ethical Guidelines, including principles of professional integrity and accountability (Principle A), integrity of data and methods (Principle B), and responsibilities to data subjects (Principle D).</p>
+<p>In particular, this project emphasizes the use of appropriate data, acknowledgment of limitations, careful interpretation of results, and clear, honest communication to ensure that findings are presented in a responsible and meaningful way.</p>
+<hr>
+</section>
+<section id="plan.5.-app-concept" class="level1">
+<h1>Plan.5. App Concept</h1>
+<section id="general-layout" class="level2">
+<h2 class="anchored" data-anchor-id="general-layout">5.1 General Layout</h2>
+<p>The app will be organized into the following sections:</p>
+<ul>
+<li><p>Exploratory Analysis Variable Selections</p></li>
+<li><p>Migration Overview (maps and flow visualization)</p>
+<ul>
+<li><p>Map Visualization</p></li>
+<li><p>Summary Statistics Table for Selected Variables</p></li>
+</ul></li>
+<li><p>Economic Indicators Interactive Plots (housing, wages, taxes)</p>
+<ul>
+<li><p>An <strong>Over-time Plot</strong> faceted by state</p></li>
+<li><p>A <strong>Scatterplot</strong> where two continuous variables can be selected</p></li>
+<li><p>A <strong>Bar plot</strong> for tax structure vs migration numbers</p></li>
+</ul></li>
+<li><p>Regression Variable Selections</p></li>
+<li><p>Modeling (regression analysis)</p>
+<ul>
+<li><p>Regression Summary Table Output</p></li>
+<li><p>Scatterplot between variables and migration values, faceted by predictor if multiple variables are used.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="user-data-selection-and-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="user-data-selection-and-manipulation">5.2 User Data Selection and Manipulation</h2>
+<p><strong>Filtering:</strong></p>
+<ul>
+<li>Users will be able to select up to 3 states or regions to compare using the map visualization, and a time range using a slider</li>
+</ul>
+<p><strong>EDA Selection/Manipulation:</strong></p>
+<ul>
+<li>Users will be able to select two variables to compare for the scatterplots and over-time plot.</li>
+<li>Users will be able to select a categorical variable to compare in the bar chart</li>
+</ul>
+<p><strong>Regression Selection/Manipulation:</strong></p>
+<ul>
+<li>Users will be able to select predictor variables to include in the model</li>
+</ul>
+</section>
+<section id="exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-analysis">5.3 Exploratory Analysis</h2>
+<ul>
+<li>Migration flow maps
+<ul>
+<li>A Map visualization where users can see migration flow numbers for each state. This visualization may also be used as an input to perform filtering on states.</li>
+</ul></li>
+<li>Interactive economic plots
+<ul>
+<li><strong>Over-time Plot:</strong> users can visualize a line plot of trends over time for selected variables. A checkbox allows a second axis to be created using the second continuous variable selected if, for example, the user wishes to see migration numbers and wages trending over the same time period. The plot will be faceted by state and the color aesthetic will map to the respective variables.</li>
+<li><strong>Scatterplots:</strong> the two continuous variables are plotted against each other, so end-users can visualize relationships between variables either for exploration, or to highlight potential collinearity patterns between predictors. Users will optionally be able to add a smoother and can optionally add a color aesthetic to distinguish between states.</li>
+<li><strong>Categorical Bar Plot:</strong> users can select categorical variables to use to compare states in the bar plot.</li>
+</ul></li>
+<li>A summary statistics table will capture summary statistics for selected variables.</li>
+</ul>
+</section>
+<section id="statistical-models" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-models">5.4 Statistical Models</h2>
+<ul>
+<li>A Linear Regression model will predict net migration as a function of the user-selected predictor variables. This selection will be separate from the exploratory variable selection.</li>
+<li>Outputs included in the <strong>Table Output</strong> will include model coefficients, R² values, and other summary statistics from the regression model</li>
+<li>There will be a <strong>Scatterplot</strong> visualization of the predictors versus the net migration with a linear smoother. For multiple predictor variables, the visualization will be faceted by predictor.</li>
+<li>Users will have the ability to log-transform variables in the model for analysis.</li>
+<li>Optional extensions for further exploration:
+<ul>
+<li>Add the ability to add interaction terms</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="plan.6.-collaboration" class="level1">
+<h1>Plan.6. Collaboration</h1>
+<section id="responsibilities" class="level2">
+<h2 class="anchored" data-anchor-id="responsibilities">6.1 Responsibilities</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Primary</th>
+<th>Secondary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data acquisition (IRS)</td>
+<td>Ambrose</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Data acquisition (Zillow)</td>
+<td>Ambrose</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Data cleaning</td>
+<td>Ambrose</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>App UI</td>
+<td>Ian</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Server logic</td>
+<td>Eric</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Modeling</td>
+<td>Eric</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Documentation</td>
+<td>Eric</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="team-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="team-workflow">6.2 Team Workflow</h2>
+<table class="caption-top table">
+<caption>Workflow</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Purpose</th>
+<th>Phase</th>
+<th>Lead</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kick-off meeting &amp; requirements gathering</td>
+<td>Define app purpose, target users, key features, and success criteria</td>
+<td>Phase 01 — Discovery &amp; Planning</td>
+<td>All</td>
+<td>Mar 19–22</td>
+</tr>
+<tr class="even">
+<td>Set up GitHub repo, branching strategy, and project board</td>
+<td>main / develop / feature branches · GitHub Issues for task tracking</td>
+<td>Phase 01 — Discovery &amp; Planning</td>
+<td></td>
+<td>Mar 19–22</td>
+</tr>
+<tr class="odd">
+<td>Audit data sources &amp; define data model</td>
+<td>Identify input datasets, formats, and any cleaning needed</td>
+<td>Phase 01 — Discovery &amp; Planning</td>
+<td>Amborose</td>
+<td>Mar 19–22</td>
+</tr>
+<tr class="even">
+<td>Wireframes &amp; UI mockups</td>
+<td>Layout, tab structure, and key reactive widgets</td>
+<td>Phase 01 — Discovery &amp; Planning</td>
+<td>IAN</td>
+<td>Mar 19–22</td>
+</tr>
+<tr class="odd">
+<td>Design review &amp; sign-off on scope</td>
+<td>Finalise feature list · and agree on communication</td>
+<td>Phase 01 — Discovery &amp; Planning</td>
+<td>All</td>
+<td>Mar 19–22</td>
+</tr>
+<tr class="even">
+<td>Scaffold Shiny app with modules architecture</td>
+<td>app.R, global.R, R/modules/ · renv lockfile for reproducibility</td>
+<td>Phase 02 — Core Development</td>
+<td>Eric</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="odd">
+<td>Build data ingestion &amp; processing pipeline</td>
+<td>ETL scripts in R · reactive data objects · caching strategy</td>
+<td>Phase 02 — Core Development</td>
+<td>Ambrose</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="even">
+<td>Implement UI shell — layout, navigation, theming</td>
+<td>Input and output</td>
+<td>Phase 02 — Core Development</td>
+<td>Ian</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="odd">
+<td>Write server-side reactive logic</td>
+<td>Reactive expressions, observers, eventReactive · data transformations</td>
+<td>Phase 02 — Core Development</td>
+<td>Eric</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="even">
+<td>Build core visualisation components</td>
+<td>ggplot2 / plotly / DT tables · interactive controls (sliders, filters)</td>
+<td>Phase 02 — Core Development</td>
+<td>Ian</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="odd">
+<td>Write unit tests for modules &amp; helper functions</td>
+<td>testthat + shinytest2 · set up CI workflow on GitHub Actions</td>
+<td>Phase 02 — Core Development</td>
+<td>Eric</td>
+<td>Mar 23 – Apr 5</td>
+</tr>
+<tr class="even">
+<td>Weekly sync — mid-build review</td>
+<td>Demo progress · surface blockers · re-prioritise if needed</td>
+<td>Phase 02 — Core Development</td>
+<td>All</td>
+<td>March 30</td>
+</tr>
+<tr class="odd">
+<td>Integration sprint — merge all feature branches</td>
+<td>Resolve merge conflicts · end-to-end smoke test on shared branch</td>
+<td>Phase 03 — Integration &amp; Testing</td>
+<td>All</td>
+<td>Apr 6–13</td>
+</tr>
+<tr class="even">
+<td>Run full shinytest2 regression suite</td>
+<td>Fix failing tests · document any known edge cases</td>
+<td>Phase 03 — Integration &amp; Testing</td>
+<td>Eric</td>
+<td>Apr 6–13</td>
+</tr>
+<tr class="odd">
+<td>Usability testing &amp; accessibility pass</td>
+<td>Test on multiple browsers · check colour contrast · tooltip copy</td>
+<td>Phase 03 — Integration &amp; Testing</td>
+<td>Ian</td>
+<td>Apr 6–13</td>
+</tr>
+<tr class="even">
+<td>Performance profiling &amp; optimisation</td>
+<td></td>
+<td>Phase 03 — Integration &amp; Testing</td>
+<td>Ambrose</td>
+<td>Apr 6–13</td>
+</tr>
+<tr class="odd">
+<td>Final UI polish &amp; copy review</td>
+<td>Labels, help text, loading spinners, error messages</td>
+<td>Phase 04 — Polish &amp; Release</td>
+<td>Ian</td>
+<td>Apr 14–20</td>
+</tr>
+<tr class="even">
+<td>Write README and user documentation</td>
+<td>Installation instructions, feature overview, data dictionary</td>
+<td>Phase 04 — Polish &amp; Release</td>
+<td>Eric</td>
+<td>Apr 14–20</td>
+</tr>
+<tr class="odd">
+<td>Final walkthrough &amp; sign-off</td>
+<td>Confirm all acceptance criteria met · tag v1.0.0 release on GitHub</td>
+<td>Phase 04 — Polish &amp; Release</td>
+<td>All</td>
+<td>Apr 14–20</td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/clipboard-444009283.png" class="img-fluid"></p>
+<ul>
+<li>Each member will work on separate branches<br>
+</li>
+<li>Pull requests required before merging<br>
+</li>
+<li>Merge only working code into <code>main</code><br>
+</li>
+<li>Integrate changes at least weekly</li>
+</ul>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">6.3 Schedule</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Milestone</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Finalize data sources</td>
+<td>March 22, 2026</td>
+</tr>
+<tr class="even">
+<td>Complete data cleaning</td>
+<td>March 28, 2026</td>
+</tr>
+<tr class="odd">
+<td>Initial app prototype</td>
+<td>April 2, 2026</td>
+</tr>
+<tr class="even">
+<td>Model implementation</td>
+<td>April 9, 2026</td>
+</tr>
+<tr class="odd">
+<td>Code freeze</td>
+<td>April 15, 2026</td>
+</tr>
+<tr class="even">
+<td>Final vignette</td>
+<td>April 20, 2026</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

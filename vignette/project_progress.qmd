@@ -1,0 +1,244 @@
+---
+title: "Progress Report"
+author: "Eric Ekman, Ambrose Bonney, Ian Chandramouli"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+## **Progress Report: Economic Drivers of Migration Patterns in the United States**
+
+### **1. Admin**
+
+**App Title:**\
+Economic Drivers of Migration Patterns in the United States
+
+**Group Members:**
+
+-   Eric Ekman
+
+-   Ambrose Bonney
+
+-   Ian Chandramouli
+
+**Course:** DATA 613
+
+## **2. Topic and Data Updates**
+
+### **2.1 Updated Context and Scope**
+
+The core research goal remains unchanged: to explore how economic factors (housing costs, wages, and taxes) are associated with migration patterns across U.S. states.
+
+During early implementation, we identified challenges in integrating multiple datasets with different formats, time ranges, and levels of aggregation. In response, we refined the structure of the data used in the app.
+
+Rather than treating each dataset independently, we standardized the design to a single merged dataset where each row represents a state-year observation and each column represents a migration or economic variable.
+
+This structure simplifies data integration and supports consistent filtering, visualization, and modeling within the app.
+
+### **2.2 Data Source Updates and Status**
+
+**Key Change:**\
+The original plan assumed all datasets could be integrated directly. During implementation, we identified inconsistencies in availability, formatting, and coverage across sources.
+
+**Current Status:**
+
+**Migration Data (Census):**
+
+-   Cleaned and structured into usable format
+
+-   Includes inbound, outbound, and net migration
+
+-   Ready for integration
+
+**Housing Data (Zillow):**
+
+-   Cleaned and aligned to state-level structure
+
+-   Ready for integration
+
+**Wage/Employment Data (BLS):**
+
+-   Major change: original dataset is being reconsidered
+
+-   Team is working on identifying an alternative dataset with more relevant granularity or variables for employment data (and possibly wages as well).
+
+-   Challenges with the dataset include that it contains extremely large files that must be downloaded on a per-quarter basis. Additionally, it contains only employment counts for filled positions with no variables that can be used to create an employment rate variable. Raw employment counts alone provide limited useful information on the relative availability of gainful employment in an area.
+
+**Tax Data (Tax Foundation):**
+
+-   Major change: original source is being reconsidered
+
+-   Current sources lack consistency across years and states
+
+-   Team is actively identifying a more reliable dataset
+
+**Lesson Learned:**\
+Data integration is more complex than anticipated, particularly when combining multiple public datasets with differing structures and time coverage.
+
+## **3. Ethical Review Update**
+
+No major changes from the original plan.
+
+-   All data remain public, aggregated, and non-identifiable
+
+-   No individual-level data are used
+
+-   Ethical considerations continue to focus on:
+
+```         
+-    Avoiding causal overinterpretation
+
+-    Acknowledging limitations in observational data
+
+-    Transparent communication of results
+```
+
+## **4. App Design Updates**
+
+### **4.1 Final Layout**
+
+A major advancement since the proposal is the creation of a fully defined app architecture and scaffolded template.
+
+The app now consists of four primary panels:
+
+-   Migration Overview
+
+-   Economic Indicators
+
+-   Modeling
+
+-   Data Table
+
+In addition to defining the layout, the template establishes a structured coding framework, including:
+
+-   Predefined inputs and outputs for each panel
+
+-   Designated sections for business logic, reactive filtering, and server-side computation, etc.
+
+-   Consistent naming conventions for variables and UI components
+
+This structure supports a clear user workflow from exploration to modeling and enables efficient parallel development, allowing team members to work on separate components without conflict while maintaining a consistent and organized codebase.
+
+### **4.2 User Data Selection and Manipulation**
+
+**Key Change:**\
+User inputs were simplified to support a functional minimum viable product (MVP) and reduce complexity during initial development.
+
+Users can now:
+
+-   Select 1–3 states for comparison
+
+-   Select a single year (time-series features deferred to a later stage)
+
+-   Choose variables using standardized dropdowns and checkboxes across panels
+
+In addition, the app introduces a Data Table panel, allowing users to view and filter the underlying dataset directly. This provides transparency and allows users to directly inspect and filter the data underlying the visualizations.
+
+These changes reflect a shift toward prioritizing core functionality and usability before expanding to more complex features such as multi-year analysis.
+
+### **4.3 Exploratory Analysis**
+
+**Key Change:**\
+The exploratory analysis component remains conceptually consistent with the original plan but has been refined to prioritize a simpler, more implementable set of features for the initial version of the app.
+
+In particular:
+
+-   The original plan included multi-year analysis with time range selection and more complex visualization options (e.g., dual-axis plots and extensive faceting)
+
+-   The current implementation prioritizes single-year analysis and a core set of visualizations (maps, scatterplots, and summary tables)
+
+-   Time-series features and more advanced plotting options are deferred until after the core app is functional
+
+These refinements reflect a shift toward building a stable and interpretable MVP before expanding to more complex exploratory features.
+
+### **4.4 Modeling**
+
+**Key Change:**\
+The modeling component remains aligned with the original plan but has been refined to simplify implementation and improve interpretability.
+
+In particular:
+
+-   Models are now explicitly cross-sectional (single year), rather than incorporating time-series elements, to reduce complexity and align with available data
+
+-   Model execution is controlled through a user-triggered run button, preventing unnecessary recomputation as inputs change
+
+The core modeling functionality remains consistent with the original proposal, including user selection of outcome and predictor variables and presentation of regression results.
+
+These refinements reflect a shift toward a more stable and interpretable modeling workflow for the initial version of the app.
+
+## **5. Risk Assessment and Mitigation**
+
+**Key Risks**
+
+-   **Data Integration Delays**\
+    Challenges aligning multiple datasets with differing formats, time ranges, and variable definitions, particularly for tax data
+
+-   **Time Constraints**\
+    The project is currently behind the initial schedule due to delays in data acquisition and cleaning
+
+-   **Coordination Challenges**\
+    The original task structure assigned large components to individual members, limiting parallel progress and increasing dependency across tasks
+
+**Mitigation Strategies**
+
+-   **Shift to shared app architecture**\
+    A scaffolded Shiny template was developed to provide a common structure, enabling parallel development and reducing the risk of conflicting code
+
+-   **Refined task structure**\
+    Work is now divided by app panels rather than by dataset, allowing team members to contribute simultaneously within a coordinated framework
+
+-   **Prioritize MVP development**\
+    The team has reduced initial scope to focus on:
+
+```         
+-    Single-year analysis
+
+-    Core variables and visualizations\
+    Additional features will be added only after baseline functionality is complete
+```
+
+-   **Short-term execution plan**\
+    Immediate focus is on resolving remaining data issues and beginning full implementation, with the goal of completing core app functionality by mid-April
+
+**Summary**
+
+These mitigation strategies collectively reduce implementation risk by improving coordination, simplifying development scope, and enabling more efficient use of remaining time.
+
+### **6. Collaboration and Timeline Updates**
+
+The project timeline has been updated to reflect current progress and revised development priorities.
+
+#### **Updated Timeline**
+
+| Phase                       | Status      | Target Date |
+|-----------------------------|-------------|-------------|
+| Data Collection             | In progress | April 5     |
+| Data Cleaning & Integration | In progress | April 7     |
+| App Architecture / Skeleton | Completed   | —           |
+| Core App Implementation     | Not started | April 15    |
+| Code Freeze                 | Planned     | April 15    |
+| Testing & Debugging         | Planned     | April 15–25 |
+| Documentation & Vignette    | Planned     | April 20–28 |
+| Demo Rehearsal              | Planned     | April 27–29 |
+| Final Presentation          | —           | April 30    |
+
+**Summary**
+
+This timeline prioritizes completing core app functionality by mid-April, allowing sufficient time for testing, refinement, and documentation prior to the final presentation.
+
+## **7. Summary of Progress**
+
+Although the project is slightly behind its original schedule, substantial progress has been made in app design and infrastructure.
+
+The group has:
+
+-   Established a clear and consistent data structure (state-year dataset)
+
+-   Identified and begun resolving key data integration challenges
+
+-   Developed a scaffolded Shiny app architecture to support implementation
+
+-   Refined the workflow to enable coordinated, parallel development
+
+These changes position the team to move efficiently into full implementation and complete core functionality within the revised timeline.

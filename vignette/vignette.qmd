@@ -1,0 +1,342 @@
+---
+title: "State Migration and Economic Indicators Explorer: Vignette"
+author: "Eric Ekman, Ambrose Bonney, Ian Chandramouli"
+date: today
+format:
+  html:
+    embed-resources: true
+---
+
+## Use Case
+
+This application is designed for policy analysts, researchers, and data practitioners interested in understanding migration patterns across U.S. states.\
+\
+The app allows users to explore how economic variables (such as housing costs, wages, and tax rates) are associated with inbound, outbound, and net migration.\
+\
+Users can:\
+- Identify which states are gaining or losing population\
+- Compare economic conditions across states\
+- Explore relationships between economic indicators and migration\
+- Estimate regression models to quantify associations\
+\
+This tool is particularly useful for exploratory analysis and hypothesis generation in public policy and economic research contexts.
+
+## Required Packages
+
+The application is built using the following R packages:\
+\
+`{shiny}`\
+`{tidyverse}`\
+`{DT}`\
+`{broom}`\
+`{ggplot2}`\
+`{sf}`\
+`{tigris}`\
+`{scales}`
+
+The app uses `{tigris}` and `{sf}` for spatial mapping, `{ggplot2}` for visualization, and `{broom}` for tidy model outputs.
+
+## Data Source(s) and Structure
+
+The application uses a merged state-year dataset combining multiple public data sources:\
+\
+- IRS migration data (state-to-state migration flows)\
+- Zillow housing data (ZHVI, ZORI)\
+- Bureau of Labor Statistics (wages and employment)\
+- Tax Foundation (state tax rates)
+
+### Data Structure
+
+Each row represents a **state-year observation**, and columns include:\
+\
+Migration variables:
+
+-   inbound_migration
+
+-   outbound_migration
+
+-   net_migration
+
+-   net_migration_rate
+
+Economic variables:
+
+-   avg_wages
+
+-   avg_rent
+
+-   housing_cost
+
+-   tax_rate
+
+-   unemployment_rate
+
+\
+\
+This unified structure enables consistent filtering and modeling across all app components.
+
+### Data Limitations
+
+\- Data availability varies by year across sources\
+- Some variables contain missing values for certain state-year combinations\
+- All data are aggregated (no individual-level data)\
+\
+These limitations should be considered when interpreting results.
+
+## Exploratory Analysis Walk through
+
+### Scenario: Are high housing costs associated with population loss?
+
+A policy analyst is interested in whether rising housing costs are associated with out-migration from certain states. Prior research suggests that high housing costs may limit migration into high-income regions.
+
+### Step 1: Select States and Year
+
+The user selects:
+
+-   States: California, Texas, Florida
+
+-   Year: 2022
+
+-   Migration measure: Net Migration Rate
+
+### Step 2: Examine Migration Map
+
+See @fig-migration-map.
+
+![Net Migration by State (2022). Selected States are outlined.](../images/migration_map_screenshot.png){#fig-migration-map}
+
+### Interpretation:
+
+The map shows that California has a negative net migration rate, while Texas and Florida exhibit positive migration. This suggests that population movement differs substantially across states.
+
+### Step 3: Explore the Relationship with Housing Costs
+
+The user selects:
+
+-   X variable: Housing Cost
+
+-   Y variable: Net Migration Rate
+
+-   Year Between 2022 and 2023
+
+See @fig-housing-scatter.
+
+```{r}
+#| label: fig-housing-scatter 
+#| fig-cap: "Relationship between housing cost and net migration rate."
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+app_data <- read_csv("../data/master_state_year_data.csv")
+
+app_data |> 
+      filter(state %in% c('California', 'Florida', 'Texas') & (year >= 2022 & year <= 2023)) |> 
+  drop_na(all_of(c('housing_cost', 'net_migration_rate'))) |> 
+      ggplot(mapping=aes(x=housing_cost, y=net_migration_rate)) +
+      geom_point(aes(color=state)) +
+      labs(title='Net Migration Rate (per 1,000) Versus Housing Cost',
+           x='Housing Cost',
+           y='Net Migration Rate (per 1,000)',
+           color='State') +
+       geom_smooth(method='lm', se=FALSE) + 
+       theme_bw() +
+       theme(legend.position = 'top',
+                  plot.title=element_text(hjust=0.5))
+```
+
+### Interpretation:
+
+The scatterplot suggests a negative association between housing costs and net migration. States with higher housing costs tend to experience lower or negative migration rates, while states with lower housing costs tend to gain population.
+
+This pattern is consistent with the hypothesis that housing affordability plays a role in migration decisions.
+
+### Responsible Data Science Considerations:
+
+-   The observed relationship shows associations, not causal relationships
+
+<!-- -->
+
+-   Housing cost may be correlated with other omitted variables (e.g., job markets, climate)
+
+<!-- -->
+
+-   Results may vary by year or subset of states
+
+<!-- -->
+
+-   Migration decisions are influenced by non-economic factors not captured in the dataset
+
+## Statistical Analysis Walk through
+
+### Scenario: To what extent do economic factors explain migration patterns?
+
+After exploring patterns visually, the analyst wants to quantify how economic variables are associated with migration.
+
+### Step 1: Specify the Model
+
+The user selects:
+
+-   Outcome variable: Net Migration Rate
+
+-   Predictors:
+
+    -    Housing Cost
+
+    -   Average Wages
+
+    -   Tax Rate
+
+-   Year: 2022
+
+The app estimates a linear regression model of the form:\
+\
+Net Migration Rate \~ Housing Cost + Wages + Tax Rate
+
+### Step 2: Examine Regression Results
+
+See @tbl-regression-results.
+
+![Regression results predicting net migration rate](../images/regression_table_screenshot.png){#tbl-regression-results}
+
+### Step 3: Interpret Coefficients
+
+-   The model results suggest:
+
+    -   **Housing cost** shows weaker or inconsistent effects\
+        → Suggesting that we cannot make a definitive statement on the effect
+
+    -   **Wages** show a negative association\
+        → Higher wages associated with population outflows
+
+    -   **Tax rate** shows a negative association\
+        → Higher tax rates may encourage population outflows
+
+    See @fig-coef-plot for a visual summary.
+
+![Regression coefficients with confidence intervals.](../images/coefficient_plot_screenshot.png){#fig-coef-plot}
+
+### Step 4: Evaluate Model Fit
+
+See @tbl-fit-results
+
+![Regression Model Summary Statistics](../images/model_fit_screenshot.png){#tbl-fit-results}
+
+The model provides summary statistics such as:
+
+-   R² (explained variance): the predictors explain approximately 33.6% in the variation in net migration rate.
+
+-   Adjusted R²: adjusted for the number of predictors included in the model, the predictors explain approximately 29.3% of the variation in net migration rate.
+
+-   Statistical significance of predictors: we can see from the p-values in @tbl-regression-results that the Average Wage and Tax Rate predictors have statistically significant coefficients at the threshold of \alpha=0.05 while the Housing Cost predictor does not.
+
+These metrics help assess how well economic variables explain migration patterns.
+
+### Responsible Data Science Considerations
+
+-   This is an **observational model**, not causal inference
+
+<!-- -->
+
+-   Omitted variable bias is likely (e.g., climate, amenities, demographics)
+
+<!-- -->
+
+-   Observed Results depend on:
+    -   Selected year
+    -   Included variables
+    -   Missing Data Handling
+    -   Rounding of small-magnitude values
+
+<!-- -->
+
+-   Small sample sizes (state-level data) limit generalizability
+
+### References:
+
+### Context of the Problem
+
+Population migration within the United States has significant implications for regional economies, public policy, and infrastructure planning.
+
+Changes in where people live affect labor markets, housing demand, tax revenue, and the allocation of public services such as transportation, education, and healthcare.
+
+For example, population inflows may increase demand for housing and strain local infrastructure. In contrast, population outflows can reduce a region’s tax base and economic activity.
+
+Economic factors are widely considered key drivers of migration decisions. Differences in cost of living - particularly housing costs, wages, and tax burdens- may influence where individuals choose to relocate by affecting their overall financial well-being and quality of life.
+
+Rising housing costs or stagnant wages in one region may encourage out-migration, while more affordable or economically favorable regions may attract new residents.
+
+This project explores how these economic factors are associated with migration patterns across U.S. states and counties.
+
+By integrating migration data with measures of housing costs, wages, and taxes, the app allows users to examine how variation in cost-of-living factors corresponds to differences in population movement.
+
+### Literature Review
+
+Prior research has identified economic factors such as housing costs, wages, and tax differences as potentially important drivers of migration patterns within the United States.
+
+[Molloy, Smith, and Wozniak (2011)](https://www.federalreserve.gov/pubs/feds/2011/201130/201130pap.pdf) review trends in internal migration in the United States and note that, while economic theory emphasizes labor market opportunities as a primary driver of migration, empirical evidence is less conclusive.
+
+The authors find that recent declines in migration are not fully explained by economic factors, suggesting that migration decisions are influenced by a broader set of factors beyond just economic incentives.
+
+**Key takeaway:** Economic factors are important in theory, but may not fully explain observed migration patterns in practice.
+
+Molloy, R., Smith, C. L., & Wozniak, A. (2011). Internal migration in the United States. *Journal of Economic perspectives*, 25(3), 173-196.
+
+[Ganong and Shoag (2017)](https://www.nber.org/system/files/working_papers/w23609/w23609.pdf) examine the decline in regional income convergence in the United States and argue that changes in housing markets play a key role in shaping migration patterns.
+
+The authors show that, while higher-income regions historically attracted workers from lower-income areas, rising housing costs, driven in part by increasingly restrictive land use regulations, have reduced migration into these regions.
+
+As housing prices rise, the economic benefits of moving to high-income areas are offset, particularly for lower-income individuals, limiting their ability to relocate.
+
+**Key takeaway:** High housing costs can constrain migration and reduce movement toward high-income regions, even when economic opportunities are greater.
+
+Ganong, P., & Shoag, D. (2017). Why has regional income convergence in the US declined?. *Journal of Urban Economics*, 102, 76–90.
+
+[Young and Varner (2011)](https://cristobalyoung.com/wp-content/uploads/2018/11/NTJ-millionaire-migration-state-taxation.pdf) examine the relationship between state income taxes and migration, focusing on high-income individuals.
+
+Using detailed tax micro-data and a difference-in-differences approach, the authors analyze how a substantial increase in top tax rates in New Jersey affected the migration behavior of millionaires.
+
+The authors find minimal overall responsiveness of high-income individuals to the tax increase, indicating that even large changes in tax rates have little effect on migration for this group.
+
+While most individuals show little response, the authors identify heterogeneity in migration behavior, with stronger effects among retirees, individuals living on investment income, and those whose earnings are tied entirely to a single state.
+
+**Key takeaway:** State taxes have little overall effect on migration among high-income individuals, though responses vary across subgroups depending on individual circumstances.
+
+Young, C., & Varner, C. (2011). Millionaire migration and state taxation. *National Tax Journal*, 64(2), 255–284.
+
+Together, these studies suggest that the relationship between economic factors and migration patterns is more complex than simple economic theories might predict.
+
+Economic models often propose that individuals relocate in response to financial incentives such as higher wages, lower taxes, or lower costs of living. However, empirical evidence indicates that these factors do not always translate into large migration responses.
+
+Molloy, Smith, and Wozniak (2011) find that economic variables alone do not fully explain observed migration trends in the United States. Ganong and Shoag (2017) show that rising housing costs in high-income regions can constrain migration, limiting the ability of individuals to move toward higher-wage areas. Young and Varner (2011) find that tax differences have little overall effect on migration among high-income individuals, although certain subgroups(such as retirees and those with investment income) appear to be more responsive.
+
+Taken together, these findings highlight a gap between theoretical expectations and observed migration behavior. This project seeks to explore that gap by allowing users to examine how economic variables such as housing costs, wages, and taxes are associated with migration patterns across U.S. regions.
+
+## Contributions
+
+\
+Eric Ekman:\
+- Developed app structure and business logic\
+- Built Migration Overview and Data Table tabs\
+- Coordinated project and documentation\
+\
+Ambrose Bonney:\
+- Collected and cleaned IRS migration and tax data\
+- Built Modeling tab\
+\
+Ian Chandramouli:\
+- Collected and cleaned Zillow and BLS data\
+- Built Economic Indicators tab\
+\
+
+## LLM Usage
+
+\
+LLMs were used to:\
+- Assist with app scaffolding\
+- Debug reactive logic\
+- Improve clarity of visualizations\
+\
+All outputs were reviewed and validated by the authors.\
